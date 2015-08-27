@@ -1,0 +1,11 @@
+(defn sum-divisible-3-5
+  "Find the sum of all the multiples of 3 or 5 below 1000"
+  [limit result]
+  (loop
+      [limit 999
+       result 0]
+    (if (zero? limit)
+      (result)
+      (recur (if (and (zero? (mod limit 3)) (zero? (mod limit 5)))
+               (dec limit) (+ limit result)
+               (dec limit) result)))))
